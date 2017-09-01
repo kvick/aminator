@@ -143,7 +143,7 @@ class BaseProvisionerPlugin(BasePlugin):
                     if script.endswith('.py'):
                         result = run_script(['python', script])
                     else:
-                        result = run_script(['sh', script])
+                        result = run_script(['sh -xe', script])
                 if not result.success:
                     log.critical("script failed: {0}: {1.std_err}".format(script, result.result))
                     return False
